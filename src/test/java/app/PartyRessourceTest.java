@@ -2,14 +2,11 @@ package app;
 
 import static io.restassured.RestAssured.given;
 
-import java.util.List;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.arc.Arc;
 import io.quarkus.logging.Log;
 import io.quarkus.test.junit.QuarkusTest;
-import io.vertx.mutiny.ext.auth.User;
-
+import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;

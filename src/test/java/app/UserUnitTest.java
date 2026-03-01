@@ -3,10 +3,8 @@ package app;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.util.List;
-
 import io.quarkus.test.junit.QuarkusTest;
-
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
