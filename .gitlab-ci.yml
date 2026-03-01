@@ -1,0 +1,16 @@
+include:
+  - project: 'code-haven-farm/ci-templates'
+    file: 'DevSecOps.gitlab-ci.yml'
+
+
+
+# Define variables to avoid redundancy
+variables:
+  MAVEN_BUILD_ARGS: -Pnative
+  MAVEN_IMAGE: maven:3.9.9-eclipse-temurin-22
+  JAVA_FORMATTER: spotify
+  JAVA_FORMATTER_REQUIRED: 'false'
+  K8s_HELM_DEPLOY_DISABLED: 'true'
+  DOCKERFILE_PATH: src/main/docker/Dockerfile.native-micro
+
+
