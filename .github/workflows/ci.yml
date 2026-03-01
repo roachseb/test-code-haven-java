@@ -1,11 +1,35 @@
 name: CI/CD
 on:
   push:
-    branches: [main, develop, 'feat/**']
+    branches: [main, develop, 'release/**']
   pull_request:
     branches: [main]
+  release:
+    types: [published]
+
+permissions:
+  contents: write          # Checkout & releases
+  packages: write          # Docker push to GHCR
+  pages: write             # GitHub Pages deployment
+  id-token: write          # OIDC (Pages, cloud logins)
+  security-events: write   # SARIF upload (CodeQL, Trivy, KICS)
+  actions: read            # Pages deployment token
 
 jobs:
   ci:
     uses: roachseb/code-haven/.github/workflows/devsecops.yml@main
+    with:
+      java_version: '21'
+      java_distribution: 'temurin'
+      maven_cli_opts: '--batch-mode --errors --fail-at-end --show-version -DskipITs'
+      maven_build_cmd: 'verify -Pnative'
+      java_formatter: 'spotify'
+      docker_registry: 'ghcr.io'
+      # Disable things we don't need
+      npm_disabled: true
+      python_disabled: true
+      golang_disabled: true
+      rust_disabled: true
+      dotnet_disabled: true
+      php_disabled: true
     secrets: inherit
