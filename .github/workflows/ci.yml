@@ -1,0 +1,11 @@
+name: CI/CD
+on:
+  push:
+    branches: [main, develop, 'feat/**']
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    uses: code-haven/.github/workflows/devsecops.yml@main
+    secrets: inherit
