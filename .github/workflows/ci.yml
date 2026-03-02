@@ -21,8 +21,8 @@ jobs:
     with:
       java_version: '21'
       java_distribution: 'temurin'
-      maven_cli_opts: '--batch-mode --errors --fail-at-end --show-version -DskipITs'
-      maven_build_cmd: 'package -Dnative -Dquarkus.native.container-build=true'
+      maven_cli_opts: '--batch-mode --errors --fail-at-end --show-version'
+      maven_build_cmd: 'package -Pnative -Dquarkus.native.container-build=true'
       java_formatter: 'spotify'
       docker_registry: 'ghcr.io'
       docker_context: '.'
